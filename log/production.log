@@ -1,0 +1,129 @@
+D, [2018-12-11T21:16:20.318601 #5223] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+D, [2018-12-11T21:16:20.319515 #5223] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-12-11T21:16:20.320895 #5223] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "body" text NOT NULL, "released_at" datetime NOT NULL, "expired_at" datetime, "member_only" boolean DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-12-11T21:16:20.321315 #5223] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "entries"[0m
+D, [2018-12-11T21:16:20.322418 #5223] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "entries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer NOT NULL, "title" varchar NOT NULL, "body" text, "posted_at" datetime NOT NULL, "status" varchar DEFAULT 'draft' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-12-11T21:16:20.324037 #5223] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_entries_on_member_id" ON "entries" ("member_id")[0m
+D, [2018-12-11T21:16:20.324583 #5223] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "members"[0m
+D, [2018-12-11T21:16:20.325955 #5223] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer NOT NULL, "name" varchar NOT NULL, "full_name" varchar, "email" varchar, "birthday" date, "sex" integer DEFAULT 1 NOT NULL, "administrator" boolean DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+D, [2018-12-11T21:16:20.340990 #5223] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2018-12-11T21:16:20.346323 #5223] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-12-11T21:16:20.347902 #5223] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181210092530)[0m
+D, [2018-12-11T21:16:20.349105 #5223] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181209035107),
+(20181209102431),
+(20181205102238);
+
+[0m
+D, [2018-12-11T21:16:20.351442 #5223] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-12-11T21:16:20.353513 #5223] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-12-11T21:16:20.357143 #5223] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-12-11T21:16:20.358649 #5223] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "production"], ["created_at", "2018-12-11 12:16:20.357581"], ["updated_at", "2018-12-11 12:16:20.357581"]]
+D, [2018-12-11T21:16:20.360351 #5223] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-12-11T21:16:20.361696 #5223] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-12-11T21:16:20.362461 #5223] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-12-11T21:16:20.363001 #5223] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-12-11T21:16:20.366086 #5223] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-12-11T22:51:21.385003 #12028] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+D, [2018-12-11T22:51:21.385912 #12028] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-12-11T22:51:21.387302 #12028] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+D, [2018-12-11T22:51:21.388932 #12028] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+D, [2018-12-11T22:51:21.390830 #12028] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+D, [2018-12-11T22:51:21.391914 #12028] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+D, [2018-12-11T22:51:21.393901 #12028] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+D, [2018-12-11T22:51:21.395719 #12028] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+D, [2018-12-11T22:51:21.397415 #12028] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+D, [2018-12-11T22:51:21.398757 #12028] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "body" text NOT NULL, "released_at" datetime NOT NULL, "expired_at" datetime, "member_only" boolean DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-12-11T22:51:21.400732 #12028] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "entries"[0m
+D, [2018-12-11T22:51:21.402474 #12028] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "entries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer NOT NULL, "title" varchar NOT NULL, "body" text, "posted_at" datetime NOT NULL, "status" varchar DEFAULT 'draft' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-12-11T22:51:21.404533 #12028] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_entries_on_member_id" ON "entries" ("member_id")[0m
+D, [2018-12-11T22:51:21.406689 #12028] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "members"[0m
+D, [2018-12-11T22:51:21.408794 #12028] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer NOT NULL, "name" varchar NOT NULL, "full_name" varchar, "email" varchar, "birthday" date, "sex" integer DEFAULT 1 NOT NULL, "administrator" boolean DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+D, [2018-12-11T22:51:21.427129 #12028] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-12-11T22:51:21.428885 #12028] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181211125018)[0m
+D, [2018-12-11T22:51:21.433073 #12028] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-12-11T22:51:21.437241 #12028] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-12-11T22:51:21.437965 #12028] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-12-11T22:51:21.438804 #12028] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-12-11T22:51:21.439259 #12028] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-12-11T22:51:21.439698 #12028] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-12-11T22:51:21.441698 #12028] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-12-11T22:51:35.860924 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312] Started GET "/members" for 127.0.0.1 at 2018-12-11 22:51:35 +0900
+I, [2018-12-11T22:51:35.872286 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312] Processing by MembersController#index as HTML
+I, [2018-12-11T22:51:35.885843 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312]   Rendering errors/login_required.html.erb within layouts/error
+I, [2018-12-11T22:51:35.912247 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312]   Rendered shared/_login_form.html.erb (0.8ms)
+I, [2018-12-11T22:51:35.912334 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312]   Rendered errors/login_required.html.erb within layouts/error (26.4ms)
+I, [2018-12-11T22:51:35.933522 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312]   Rendered shared/_footer.html.erb (0.4ms)
+I, [2018-12-11T22:51:35.933721 #12048]  INFO -- : [8248bb49-e23c-4d08-861f-0957a593a312] Completed 403 Forbidden in 61ms (Views: 52.6ms)
+I, [2018-12-11T22:51:45.459575 #12048]  INFO -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8] Started POST "/session" for 127.0.0.1 at 2018-12-11 22:51:45 +0900
+I, [2018-12-11T22:51:45.460270 #12048]  INFO -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8] Processing by SessionsController#create as HTML
+I, [2018-12-11T22:51:45.460348 #12048]  INFO -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"zli9OWlsaCyehx/4bw0uYw43kiyLeiV0WW45qiCcK6ndpqshL/OqThabDX5X/V06D4SNrwyC3XeKLIVkY6oByg==", "name"=>"Jiro", "password"=>"[FILTERED]"}
+D, [2018-12-11T22:51:45.467294 #12048] DEBUG -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8]   [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."name" = ? LIMIT ?[0m  [["name", "Jiro"], ["LIMIT", 1]]
+I, [2018-12-11T22:51:45.467768 #12048]  INFO -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8] Redirected to http://localhost:3000/
+I, [2018-12-11T22:51:45.467919 #12048]  INFO -- : [a2536d86-df8a-4374-aa8a-14da6803dbf8] Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+I, [2018-12-11T22:51:45.471179 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31] Started GET "/" for 127.0.0.1 at 2018-12-11 22:51:45 +0900
+I, [2018-12-11T22:51:45.471749 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31] Processing by TopController#index as HTML
+I, [2018-12-11T22:51:45.481117 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendering top/index.html.erb within layouts/application
+D, [2018-12-11T22:51:45.482447 #12048] DEBUG -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:51:45.472369') AND (expired_at > '2018-12-11 13:51:45.472369' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+I, [2018-12-11T22:51:45.482632 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendered top/index.html.erb within layouts/application (1.4ms)
+I, [2018-12-11T22:51:45.486565 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendered shared/_header.html.erb (1.0ms)
+I, [2018-12-11T22:51:45.491001 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendered shared/_login_form.html.erb (0.5ms)
+D, [2018-12-11T22:51:45.491980 #12048] DEBUG -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:51:45.491114') AND (expired_at > '2018-12-11 13:51:45.491114' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+D, [2018-12-11T22:51:45.493450 #12048] DEBUG -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."status" = ? ORDER BY "entries"."posted_at" DESC LIMIT ?[0m  [["status", "public"], ["LIMIT", 5]]
+I, [2018-12-11T22:51:45.493573 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendered shared/_sidebar.html.erb (5.2ms)
+I, [2018-12-11T22:51:45.495511 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31]   Rendered shared/_footer.html.erb (0.4ms)
+I, [2018-12-11T22:51:45.495713 #12048]  INFO -- : [7bca6d39-719a-4950-8e1b-b7522c5a2b31] Completed 200 OK in 24ms (Views: 19.1ms | ActiveRecord: 1.2ms)
+I, [2018-12-11T22:51:57.708908 #12048]  INFO -- : [0b374155-5675-4199-80ea-ce648d91fa33] Started POST "/session" for 127.0.0.1 at 2018-12-11 22:51:57 +0900
+I, [2018-12-11T22:51:57.709721 #12048]  INFO -- : [0b374155-5675-4199-80ea-ce648d91fa33] Processing by SessionsController#create as HTML
+I, [2018-12-11T22:51:57.709839 #12048]  INFO -- : [0b374155-5675-4199-80ea-ce648d91fa33]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"yMVAAT/N7qu9jyO0TRtvLbLzp3/hoaPaEwU149yt/lCh/3S5f9yEnXuomTjMJ8crXCJoaYM4oj/Y54hseJLpTQ==", "name"=>"Jiro", "password"=>"[FILTERED]"}
+D, [2018-12-11T22:51:57.710787 #12048] DEBUG -- : [0b374155-5675-4199-80ea-ce648d91fa33]   [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."name" = ? LIMIT ?[0m  [["name", "Jiro"], ["LIMIT", 1]]
+I, [2018-12-11T22:51:57.711063 #12048]  INFO -- : [0b374155-5675-4199-80ea-ce648d91fa33] Redirected to http://localhost:3000/
+I, [2018-12-11T22:51:57.711184 #12048]  INFO -- : [0b374155-5675-4199-80ea-ce648d91fa33] Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+I, [2018-12-11T22:51:57.713436 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d] Started GET "/" for 127.0.0.1 at 2018-12-11 22:51:57 +0900
+I, [2018-12-11T22:51:57.713864 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d] Processing by TopController#index as HTML
+I, [2018-12-11T22:51:57.714977 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendering top/index.html.erb within layouts/application
+D, [2018-12-11T22:51:57.715663 #12048] DEBUG -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:51:57.714223') AND (expired_at > '2018-12-11 13:51:57.714223' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+I, [2018-12-11T22:51:57.715807 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendered top/index.html.erb within layouts/application (0.8ms)
+I, [2018-12-11T22:51:57.716629 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendered shared/_header.html.erb (0.3ms)
+I, [2018-12-11T22:51:57.717033 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendered shared/_login_form.html.erb (0.2ms)
+D, [2018-12-11T22:51:57.717859 #12048] DEBUG -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:51:57.717107') AND (expired_at > '2018-12-11 13:51:57.717107' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+D, [2018-12-11T22:51:57.718407 #12048] DEBUG -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."status" = ? ORDER BY "entries"."posted_at" DESC LIMIT ?[0m  [["status", "public"], ["LIMIT", 5]]
+I, [2018-12-11T22:51:57.718529 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendered shared/_sidebar.html.erb (1.8ms)
+I, [2018-12-11T22:51:57.718696 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d]   Rendered shared/_footer.html.erb (0.1ms)
+I, [2018-12-11T22:51:57.718844 #12048]  INFO -- : [5138683e-232d-42ed-a43a-2cb4685f732d] Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+I, [2018-12-11T22:52:16.454727 #12048]  INFO -- : [7af556fb-4a02-4199-9c89-cc8031b0e358] Started POST "/session" for 127.0.0.1 at 2018-12-11 22:52:16 +0900
+I, [2018-12-11T22:52:16.455624 #12048]  INFO -- : [7af556fb-4a02-4199-9c89-cc8031b0e358] Processing by SessionsController#create as HTML
+I, [2018-12-11T22:52:16.455706 #12048]  INFO -- : [7af556fb-4a02-4199-9c89-cc8031b0e358]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"G8ebRaINfm6R32eQsafeq86zPqmEVw+kyLzUz7/dt4Ry/a/94hwUWFf43Rwwm3atIGLxv+bODkEDXmlAG+KgmQ==", "name"=>"Jiro", "password"=>"[FILTERED]"}
+D, [2018-12-11T22:52:16.456897 #12048] DEBUG -- : [7af556fb-4a02-4199-9c89-cc8031b0e358]   [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."name" = ? LIMIT ?[0m  [["name", "Jiro"], ["LIMIT", 1]]
+I, [2018-12-11T22:52:16.457215 #12048]  INFO -- : [7af556fb-4a02-4199-9c89-cc8031b0e358] Redirected to http://localhost:3000/
+I, [2018-12-11T22:52:16.457353 #12048]  INFO -- : [7af556fb-4a02-4199-9c89-cc8031b0e358] Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+I, [2018-12-11T22:52:16.460159 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef] Started GET "/" for 127.0.0.1 at 2018-12-11 22:52:16 +0900
+I, [2018-12-11T22:52:16.460854 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef] Processing by TopController#index as HTML
+I, [2018-12-11T22:52:16.461994 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendering top/index.html.erb within layouts/application
+D, [2018-12-11T22:52:16.462692 #12048] DEBUG -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:52:16.461289') AND (expired_at > '2018-12-11 13:52:16.461289' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+I, [2018-12-11T22:52:16.462839 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendered top/index.html.erb within layouts/application (0.8ms)
+I, [2018-12-11T22:52:16.464025 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendered shared/_header.html.erb (0.5ms)
+I, [2018-12-11T22:52:16.465222 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendered shared/_login_form.html.erb (0.5ms)
+D, [2018-12-11T22:52:16.466433 #12048] DEBUG -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:52:16.465385') AND (expired_at > '2018-12-11 13:52:16.465385' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+D, [2018-12-11T22:52:16.467227 #12048] DEBUG -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."status" = ? ORDER BY "entries"."posted_at" DESC LIMIT ?[0m  [["status", "public"], ["LIMIT", 5]]
+I, [2018-12-11T22:52:16.467371 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendered shared/_sidebar.html.erb (2.8ms)
+I, [2018-12-11T22:52:16.467621 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef]   Rendered shared/_footer.html.erb (0.1ms)
+I, [2018-12-11T22:52:16.467846 #12048]  INFO -- : [2548e03f-b505-4759-aea4-6d3fc2a408ef] Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.7ms)
+I, [2018-12-11T22:52:18.813537 #12048]  INFO -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3] Started POST "/session" for 127.0.0.1 at 2018-12-11 22:52:18 +0900
+I, [2018-12-11T22:52:18.814234 #12048]  INFO -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3] Processing by SessionsController#create as HTML
+I, [2018-12-11T22:52:18.814308 #12048]  INFO -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"atD4NCInqCh5G6sB2sHK+IZxMHLnU+YVAhzaG0jk3KQD6syMYjbCHr88EY1b/WL+aKD/ZIXK5/DJ/meU7NvLuQ==", "name"=>"", "password"=>"[FILTERED]"}
+D, [2018-12-11T22:52:18.815325 #12048] DEBUG -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3]   [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+I, [2018-12-11T22:52:18.815619 #12048]  INFO -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3] Redirected to http://localhost:3000/
+I, [2018-12-11T22:52:18.815735 #12048]  INFO -- : [bc55c410-fd87-47ff-bed1-3dd0067983c3] Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+I, [2018-12-11T22:52:18.818212 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934] Started GET "/" for 127.0.0.1 at 2018-12-11 22:52:18 +0900
+I, [2018-12-11T22:52:18.818792 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934] Processing by TopController#index as HTML
+I, [2018-12-11T22:52:18.819869 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendering top/index.html.erb within layouts/application
+D, [2018-12-11T22:52:18.820536 #12048] DEBUG -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:52:18.819201') AND (expired_at > '2018-12-11 13:52:18.819201' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+I, [2018-12-11T22:52:18.820663 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendered top/index.html.erb within layouts/application (0.7ms)
+I, [2018-12-11T22:52:18.821496 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendered shared/_header.html.erb (0.4ms)
+I, [2018-12-11T22:52:18.821906 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendered shared/_login_form.html.erb (0.2ms)
+D, [2018-12-11T22:52:18.822663 #12048] DEBUG -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE (released_at <= '2018-12-11 13:52:18.821978') AND (expired_at > '2018-12-11 13:52:18.821978' OR expired_at IS NULL) AND "articles"."member_only" = ? ORDER BY "articles"."released_at" DESC LIMIT ?[0m  [["member_only", 0], ["LIMIT", 5]]
+D, [2018-12-11T22:52:18.823447 #12048] DEBUG -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."status" = ? ORDER BY "entries"."posted_at" DESC LIMIT ?[0m  [["status", "public"], ["LIMIT", 5]]
+I, [2018-12-11T22:52:18.823587 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendered shared/_sidebar.html.erb (1.9ms)
+I, [2018-12-11T22:52:18.823817 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934]   Rendered shared/_footer.html.erb (0.1ms)
+I, [2018-12-11T22:52:18.823992 #12048]  INFO -- : [2929e342-cc27-4d87-8f6f-3379f5072934] Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
