@@ -1,9 +1,9 @@
 * Ruby version
-Ruby 2.5.1
+Ruby 2.5.1、
 Rails 5.2.0
 
 * インストール済みと考えるもの
-Sqlite3
+Sqlite3、
 bundle
 
 * 始め方
